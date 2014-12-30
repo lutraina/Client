@@ -1,0 +1,10 @@
+services:
+
+    web_ws_client.factory:
+        class: Web\Bundle\WSClientBundle\Factory\WSClientFactory
+
+    web.ws.client.listener:
+        class: Web\Bundle\WSClientBundle\Listener\WSClientListener
+        arguments: [ @event_dispatcher ]
+        tags:
+            - { name: kernel.event_listener, event: request.complete, method: onRequestComplete }

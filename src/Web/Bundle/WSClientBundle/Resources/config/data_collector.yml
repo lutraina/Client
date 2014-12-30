@@ -1,0 +1,6 @@
+services:
+    bew.data_collector.wsclient:
+        class: Web\Bundle\WSClientBundle\DataCollector\WSClientDataCollector
+        tags:
+            - { name: data_collector, template: 'WebWSClientBundle:Collector:wsclient', id: 'wsclient' }
+            - { name: kernel.event_listener, event: wsclient.command, method: onWSClientCommand }
